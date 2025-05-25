@@ -44,7 +44,6 @@ WHERE address_id IN (
 	WHERE country LIKE "canada");
 	
 -- 6. Determine which films were starred by the most prolific actor in the Sakila database. A prolific actor is defined as the actor who has acted in the most number of films. First, you will need to find the most prolific actor and then use that actor_id to find the different films that he or she starred in.
--- Assuming "most prolific artirst" is the top 5 of artists with more movies
 SELECT film.title
 FROM film 
 	INNER JOIN film_actor ON film.film_id = film_actor.film_id 
@@ -53,7 +52,7 @@ WHERE film_actor.actor_id IN (
 	FROM film_actor
 	GROUP BY actor_id
 	ORDER BY COUNT(film_id) DESC
-	LIMIT 5); 
+	LIMIT 1); 
 	
 -- 7. Find the films rented by the most profitable customer in the Sakila database. You can use the customer and payment tables to find the most profitable customer, i.e., the customer who has made the largest sum of payments.
 SELECT title
